@@ -1,4 +1,5 @@
 int num = 25;
+
 boolean grid [] [] = new boolean[num][];
 String currentGame;
 
@@ -13,7 +14,6 @@ void setup() {
   }
   currentGame = "maze";
 }
-
 void draw() {
   if(currentGame == "maze") {
     println("The maze is the current game.");
