@@ -1,5 +1,6 @@
 int num = 25;
 boolean grid [] [] = new boolean[num][];
+String currentGame;
 
 void setup() {
   size(500,500);
@@ -10,9 +11,13 @@ void setup() {
       grid[i][j]=false;
     }
   }
+  currentGame = "maze";
 }
 
 void draw() {
+  if(currentGame == "maze") {
+    println("The maze is the current game.");
+  }
   background(0);
   if(mousePressed) {
     int x = round(num*mouseX/width);
@@ -27,4 +32,5 @@ void draw() {
       }
     }
   }
+
 }
