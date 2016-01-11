@@ -1,5 +1,5 @@
 int num = 25;
-boolean grid [] [] = new boolean[num][];
+boolean grid [] [] = new boo[num][];
 
 void setup() {
   size(500,500);

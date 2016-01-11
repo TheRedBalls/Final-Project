@@ -9,7 +9,9 @@ fill(255,0,0);
 text("REDBALL!!!", width/2, 200);
 ellipse(width/2, 300, 100,100);
 rect(10, 470, 120, 25);
-text("INSTRUCTIONS", 70,  
+textSize(20);
+fill(0);
+text("INSTRUCTIONS", 70, 482.5); 
 rect(370, 470, 120, 25);
 rect(190, 420, 120, 50);
 }
