@@ -1,4 +1,6 @@
 int num = 25;
+int mode=0;
+
 
 boolean grid [] [] = new boolean[num][];
 String currentGame;
@@ -17,6 +19,9 @@ void setup() {
 void draw() {
   background(0);
   if (currentGame == "startScreen") {
+    mode = 0;
+  }
+  if(mode == 0){
     size(500, 500);
     textAlign(CENTER);
     textSize(25);
@@ -41,7 +46,14 @@ void draw() {
     fill(0);
     text("CREDITS", 430, 487);
   }
-
+if(mousePressed == true && 10 =< mouseX =< 130 && 470 =< mouseY =< 495){
+  mode = 1;
+}
+if(mode == 1) {
+  fill(34, 24, 78);
+}
+  ellipse(50,50,50,50);
+  
   if (currentGame == "maze") {
     println("The maze is the current game.");
   }
