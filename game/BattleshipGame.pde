@@ -1,12 +1,22 @@
 class BattleshipGame {
-  int[][] board = new int[25][25]; //mumber of rows and columns
+  boolean playing;
+  int[][] computerBoard = new int[25][25]; //mumber of rows and columns
   int tries;
   BattleshipGame() {
-    for(int i = 0; i < board.length; i++) {
-      for(int j = 0; j < board[i].length; j++) {
-        board[i][j] = 1; 
+    playing = true;
+    for(int i = 0; i < computerBoard.length; i++) {
+      for(int j = 0; j < computerBoard[i].length; j++) {
+        computerBoard[i][j] = 1; 
+        print(computerBoard[i][j]);
       }
+      println("");
     }
+    
+  }
+  
+  int[] computerChoose() {
+    int[] ships = new int[5];
+    return ships;
   }
   
   

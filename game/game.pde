@@ -2,6 +2,7 @@ int num = 25;
 
 boolean grid [] [] = new boolean[num][];
 String currentGame;
+BattleshipGame shipGame;
 
 void setup() {
   size(500,500);
@@ -17,6 +18,7 @@ void setup() {
 void draw() {
   if(currentGame == "maze") {
     println("The maze is the current game.");
+    shipGame = new BattleshipGame();
   }
   background(0);
   if(mousePressed) {
