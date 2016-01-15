@@ -1,12 +1,10 @@
 class Maze {
-  PImage maze;
-  PVector loc;
-
-  void Maze() {
-    maze = loadImage("maze.png");
-    loc = new PVector(width/2,height/2);
-  }
+  PImage maze = loadImage("maze.png");
+  PVector loc = new PVector(width/2,height/2);
 
   void display() {
+    maze.resize(width*5,height*5);
+    imageMode(CENTER);
+    image(maze,loc.x,loc.y);
   }
 }

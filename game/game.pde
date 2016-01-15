@@ -1,5 +1,3 @@
-int num = 25;
-
 String currentGame;
 Maze maze;
 Platform platform;
