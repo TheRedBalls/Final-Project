@@ -1,4 +1,5 @@
 class Platform {
+
   int x, y, l, w;
   void platform() {
     x= 0;
@@ -9,5 +10,13 @@ class Platform {
   void display() {
     fill(255);
     rect(x, y, l, w);
+
+  FloatList length;
+  StringList right;
+  
+  void Platform() {
+    length = new FloatList();
+    right = new StringList();
+
   }
 }
