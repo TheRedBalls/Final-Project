@@ -1,36 +1,29 @@
 int num = 25;
 
-boolean grid [] [] = new boolean[num][];
 String currentGame;
+Maze maze;
+Platform platform;
 BattleshipGame shipGame;
 
 void setup() {
   size(500, 500);
   noStroke();
-  for (int i = 0; i < num; i++) {
-    grid[i] = new boolean[num];
-    for (int j = 0; j < num; j++) {
-      grid[i][j]=false;
-    }
-  }
-  currentGame = "startScreen";
+  currentGame = "maze";
+  
+  maze = new Maze();
+  platform = new Platform();
+  shipGame = new BattleshipGame();
 }
+
 void draw() {
-  if(currentGame == "maze") {
-    println("The maze is the current game.");
-    shipGame = new BattleshipGame();
-  }
   background(0);
   if (currentGame == "startScreen") {
     startScreen();
   }
-
   if (currentGame == "maze") {
-    println("The maze is the current game.");
+    maze.display();
   }
-  currentGame = "battleship";
-  if(currentGame == "battleship") {
-    shipGame = new BattleshipGame();
-    noLoop(); //testing
+  if(currentGame == "battleShipGame") {
+    println("The maze is the current game.");
   }
 }

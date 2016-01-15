@@ -23,7 +23,6 @@ class BattleshipGame {
           int randomDirection = int(random(2)); //0 is down, 1 is right
           //check to make sure place can be placed in the given direction
           print(place(randomTarget, randomDirection, computerBoard));
-          
         }
       }
       println("");
@@ -35,13 +34,13 @@ class BattleshipGame {
     for(int i = 0; i < shipLengths.length; i++) {
       if(randomDirection == 0) {
         if(target[0]+i < gameBoard.length-1) { //if not out of bounds
-          if(gameBoard[target[0]+i][target[1]] != 0) { //if the square is already occupied 
+          if(gameBoard[target[0]+i][target[1]] != 0) { //if the square is already occupied
             //return false;
           }
         } 
       }
      else if(randomDirection == 1) {
-       if(target[0]+i < gameBoard[0].length-1) { //if not out of bounds
+       if(target[1]+i < gameBoard[0].length-1) { //if not out of bounds
           if(gameBoard[target[0]][target[1]+i] != 0) { //if the square is already occupied
             //return false;
           }
