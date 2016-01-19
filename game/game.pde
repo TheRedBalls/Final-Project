@@ -1,4 +1,5 @@
 String currentGame;
+int lives;
 Maze maze;
 Platform platform;
 BattleshipGame shipGame;
