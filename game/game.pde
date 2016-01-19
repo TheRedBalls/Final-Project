@@ -97,9 +97,11 @@
 //}
 
 String currentGame;
+int lives = 9;
 Maze maze;
 Platform platform;
 BattleshipGame shipGame;
+GameOverScreen gameOverScreen;
 
 void setup() {
   size(500, 500);
@@ -121,5 +123,11 @@ void draw() {
   }
   if(currentGame == "battleShipGame") {
     println("The maze is the current game.");
+  }
+  
+  if(lives > 0){
+    text("Lives: " + lives, 50,0);
+  } else{
+    gameOverScreen.display();
   }
 }

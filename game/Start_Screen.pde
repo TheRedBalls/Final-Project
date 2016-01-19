@@ -78,5 +78,5 @@ void startScreen () {
   textSize(15);
   fill(0);
   text("CREDITS", 430, 487);
-
+}
 }
