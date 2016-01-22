@@ -43,16 +43,17 @@ class StartScreen {
       fill(0);
       textSize(25);
       text("BACK", width/2, 460);
-      noLoop();
-      if(mousePressed == true && 200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475){
-        startScreen.mode = 0;
-       
-      }
     } else if (mode == 2) {
       currentGame = "maze"; //this should actually send them into the maze game
       noLoop();
     } else if (mode == 3) {
-      background(255);
+      background(0);
+     fill(255);
+     textSize(15);
+     text("Lead Programmers: Jason Wong and Skanda Rao", width/2, );
+     text("Graphics Designer: Myia Samuels", width/2, );
+     text("User Interface: Nafisa", width/2, );
+     text("De
       noLoop();
     }
   }
