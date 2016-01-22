@@ -1,5 +1,13 @@
+
 int num = 25;
 int mode=0;
+
+String currentGame;
+int lives = 9;
+
+//int num = 25;
+//int mode=0;
+
 
 
 
@@ -39,11 +47,14 @@ int mode=0;
 //}
 //}
 
-String currentGame;
 Maze maze;
 Platform platform;
 BattleshipGame shipGame;
+
 StartScreen startScreen;
+
+GameOverScreen gameOverScreen;
+
 
 void setup() {
   size(500, 500);
@@ -64,8 +75,19 @@ void draw() {
   if (currentGame == "maze") {
     maze.display();
   }
+
   if (currentGame == "battleShipGame") {
     println("The maze is the current game.");
+
+  if(currentGame == "battleShipGame") {
+    shipGame.display();
+  }
+  
+  if(lives > 0){
+    text("Lives: " + lives, 50,0);
+  } else{
+    gameOverScreen.display();
+
   }
 }
 
