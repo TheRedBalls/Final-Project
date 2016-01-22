@@ -108,8 +108,8 @@ void setup() {
   size(500, 500);
   noStroke();
   currentGame = "platform";
-  //start = new StartScreen();
-  //maze = new Maze();
+  start = new StartScreen();
+  maze = new Maze();
   platform = new Platform();
   //shipGame = new BattleshipGame();
 }
@@ -124,7 +124,8 @@ void draw() {
     maze.display();
   }
   if (currentGame == "platform") {
-    platform.display();
+   
+    platform.run();
     println("platform ");
   }
   if (currentGame == "battleShipGame") {
