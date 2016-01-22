@@ -120,6 +120,6 @@ void draw() {
     maze.display();
   }
   if(currentGame == "battleShipGame") {
-    println("The maze is the current game.");
+    shipGame.display();
   }
 }
