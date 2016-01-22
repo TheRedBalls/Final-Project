@@ -1,99 +1,51 @@
 class Platform {
-  PImage rect; 
   PImage ball; 
-  PVector loc;
-  float x,y;
-  //float diam;
-  //PVector loc;
- 
-Ball() {
-  x = 0;
-  y = 0;
-  background = loadImage("platformbackground.jpg");
-  ball = loadImage("ActualRedBallCharacter.jpg"); 
-  loc = new PVector(x,y);
-
-
-  
-}
-
-void keyPressed(){
- if (key == CODED){
-  if (keyCode == UP){
-   y = y-1; 
-  }
-  if (keyCode == DOWN){
-   y = y+1; 
-  }
-  if(keyCode == RIGHT){
-   x = x+1; 
-  }
-  if(keyCode == LEFT){
-   x = x-1; 
-  }
- }
-}
-
-
-void display() {
-   image(background,0,0);
-   image(ball,loc.x,loc.y);
-   
-   
-  }
-}
-
-
-
-
-
-
-
-------------------------------------------------------------------------------------
-  PImage ball; 
-  PVector loc;
-  float x, y;
+  PVector loc, vel, acc;
+  boolean jumping = false;
+  PImage backgrounds;
 
 
   Platform() {
-    x = 0;
-    y = 0;
-    backgrounds = loadImage("redBallCharacter.jpg");
+    backgrounds = loadImage("bg.jpg");
     ball = loadImage("ActualRedBallCharacter.jpg"); 
-    loc = new PVector(width/2,height/2);
+    vel = new PVector(0, 0);
+    acc = new PVector(0, 0.1);
+    loc = new PVector(width/2, height/2);
   }
 
- void keyPressed() {
-   if (key == CODED) {
-     if (keyCode == UP) {
-       y = y-1;
-     }
-     if (keyCode == DOWN) {
-       y = y+1;
-     }
-     if (keyCode == RIGHT) {
-       x = x+1;
-     }
-     if (keyCode == LEFT) {
-       x = x-1;
-     }
-   }
- }
-
+  void move() {
+    vel.add(acc);
+    loc.add(vel);
+    if (keyPressed) {
+      if (keyCode == UP) {
+        if (!jumping) {
+          vel.y = -5;
+          jumping = true;
+        }
+      } else if (keyCode == DOWN) {
+        loc.y++;
+      } else if (keyCode == RIGHT) {
+        loc.x++;
+      } else if (keyCode == LEFT) {
+        loc.x--;
+      }
+    }
+    hitBottom();
+  }
+  void run() {
+    display();
+    move();
+  }
 
   void display() {
-    image(backgrounds,50,50);
+    background(backgrounds);
     image(ball, loc.x, loc.y, ball.width, ball.height);
   }
-}
-
-------------------------------------------
- Platform p;
- 
- void setup() { 
-  p = new Platform();
-}
-
-void draw() {
- p.display(); 
+  void hitBottom() {
+    print("jumping now");
+    if (loc.y + ball.width > height) {
+      loc.y = height - ball.width; 
+      jumping = false;
+    }
+  }
 }
