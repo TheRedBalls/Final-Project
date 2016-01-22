@@ -1,3 +1,6 @@
+String currentGame;
+int lives = 9;
+
 //int num = 25;
 //int mode=0;
 
@@ -96,8 +99,6 @@
   //}
 //}
 
-String currentGame;
-int lives = 9;
 Maze maze;
 Platform platform;
 BattleshipGame shipGame;
