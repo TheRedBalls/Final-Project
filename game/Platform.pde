@@ -6,7 +6,7 @@ class Platform {
 
 
   Platform() {
-    backgrounds = loadImage("bg.jpg");
+    backgrounds = loadImage("platformbackground.png");
     ball = loadImage("ActualRedBallCharacter.jpg"); 
     vel = new PVector(0, 0);
     acc = new PVector(0, 0.1);
@@ -45,6 +45,11 @@ class Platform {
     print("jumping now");
     if (loc.y + ball.width > height) {
       loc.y = height - ball.width; 
+      jumping = false;
+    }
+  }
+  void hitPlatform() {
+    if (vel.y > 0 && backgrounds.get(int(loc.x), int(loc.y)) == color(0)) {
       jumping = false;
     }
   }
