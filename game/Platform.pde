@@ -13,6 +13,7 @@ Ball() {
   ball = loadImage("ActualRedBallCharacter.jpg"); 
   loc = new PVector(x,y);
 
+
   
 }
 
@@ -32,6 +33,7 @@ void keyPressed(){
   }
  }
 }
+
 
 void display() {
    image(rect,0,0);
