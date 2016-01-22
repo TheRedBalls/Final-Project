@@ -81,19 +81,19 @@
 //  //}
 //  //if(currentGame == "battleship") {
 //  //  if (mousePressed) {
-  //    int x = round(num*mouseX/width);
-  //    int y = round(num*mouseY/height);
-  //    grid[x][y] = true;
-  //  }
-  //  for (int i = 0; i < num; i++) {
-  //    for (int j = 0; j < num; j++) {
-  //      if (grid[i][j]==true) {
-  //        fill(0, 255, 0);
-  //        rect(i*width/num, j*height/num, width/num, height/num);
-  //      }
-  //    }
-  //  }
-  //}
+//    int x = round(num*mouseX/width);
+//    int y = round(num*mouseY/height);
+//    grid[x][y] = true;
+//  }
+//  for (int i = 0; i < num; i++) {
+//    for (int j = 0; j < num; j++) {
+//      if (grid[i][j]==true) {
+//        fill(0, 255, 0);
+//        rect(i*width/num, j*height/num, width/num, height/num);
+//      }
+//    }
+//  }
+//}
 //}
 
 String currentGame;
@@ -102,32 +102,38 @@ Maze maze;
 Platform platform;
 BattleshipGame shipGame;
 GameOverScreen gameOverScreen;
+StartScreen start;
 
 void setup() {
   size(500, 500);
   noStroke();
-  currentGame = "maze";
-  
-  maze = new Maze();
+  currentGame = "platform";
+  //start = new StartScreen();
+  //maze = new Maze();
   platform = new Platform();
-  shipGame = new BattleshipGame();
+  //shipGame = new BattleshipGame();
 }
 
 void draw() {
+  println("start");
   background(0);
   if (currentGame == "startScreen") {
-    startScreen();
+    start.startScreen();
   }
   if (currentGame == "maze") {
     maze.display();
   }
-  if(currentGame == "battleShipGame") {
+  if (currentGame == "platform") {
+    platform.display();
+    println("platform ");
+  }
+  if (currentGame == "battleShipGame") {
     println("The maze is the current game.");
   }
-  
-  if(lives > 0){
-    text("Lives: " + lives, 50,0);
-  } else{
+
+  if (lives > 0) {
+    text("Lives: " + lives, 50, 0);
+  } else {
     gameOverScreen.display();
   }
 }
