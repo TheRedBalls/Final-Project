@@ -14,6 +14,7 @@ class BattleshipGame {
   
   void display() {
     background(0);
+    stroke(0); //start stroking
     for(int i = 0; i < computerBoard.length; i++) { //set each square to zero
       for(int j = 0; j < computerBoard[i].length; j++) {
         if(revealedBoard[i][j] == true) {
@@ -31,6 +32,7 @@ class BattleshipGame {
       }
     }
     checkClick();
+    noStroke(); //other games don't use stroke
   }
   
   void checkClick() {
@@ -60,7 +62,7 @@ class BattleshipGame {
     
     for(int k = 0; k < shipLengths.length; k++) {
       int[] randomTarget = {int(random(computerBoard.length)), int(random(computerBoard[0].length))}; //columns, rows
-      int randomDirection = int(random(1)); //0 is down, 1 is right
+      int randomDirection = int(random(2)); //generate number (0 or 1 since int rounds it) 0 is down, 1 is right
       //check to make sure place can be placed in the given direction
       computerBoard = place(randomTarget, randomDirection, computerBoard, shipLengths[k]);
       
@@ -88,20 +90,19 @@ class BattleshipGame {
             if(gameBoard[target[0]+i][target[1]] == 0) { //if the square is not already occupied 
               gameBoard[target[0]+i][target[1]] = shipNumber;
             } else {
-              //revert changes
-              for(int j = i; j >= 0; j--) {
-                gameBoard[target[0]+j][target[1]] = 0;
-              }
+              //revert changes and generate new target
+              gameBoard = revertChanges(i-1, target, "row", gameBoard);
               target[0] = int(random(computerBoard.length));
               target[1] = int(random(computerBoard[0].length));
-              randomDirection = int(random(1));
+              randomDirection = int(random(2));
               completed = false;
               break;
             }
           } else {
+            gameBoard = revertChanges(i-1, target, "row", gameBoard);
             target[0] = int(random(computerBoard.length));
             target[1] = int(random(computerBoard[0].length));
-            randomDirection = int(random(1));
+            randomDirection = int(random(2));
             completed = false;
             break;
           }
@@ -111,20 +112,18 @@ class BattleshipGame {
             if(gameBoard[target[0]][target[1]+i] == 0) { //if the square is not already occupied
               gameBoard[target[0]][target[1]+i] = shipNumber;
             } else {
-              //revert changes
-              for(int j = i; j >= 0; j--) {
-                gameBoard[target[0]][target[1]+j] = 0;
-              }
+              gameBoard = revertChanges(i-1, target, "column", gameBoard);
               target[0] = int(random(computerBoard.length));
               target[1] = int(random(computerBoard[0].length));
-              randomDirection = int(random(1));
+              randomDirection = int(random(2));
               completed = false;
               break; 
             }
           } else {
+            gameBoard = revertChanges(i-1, target, "column", gameBoard);
             target[0] = int(random(computerBoard.length));
             target[1] = int(random(computerBoard[0].length));
-            randomDirection = int(random(1));
+            randomDirection = int(random(2));
             completed = false;
             break;
           }
@@ -145,6 +144,19 @@ class BattleshipGame {
     return board;
   }
   
+  int[][] revertChanges(int index, int[] target, String roworColumn, int[][] board) {
+    if(index >= 0 && index < 10) {
+      for(int i = index; i >= 0; i--) {
+        if(roworColumn == "column") {
+          board[target[0]][target[1]+i] = 0;
+        } else if(roworColumn == "row") {
+          board[target[0]+i][target[1]] = 0;
+        }
+
+      }
+    }
+    return board;
+  }
   
   
 }
