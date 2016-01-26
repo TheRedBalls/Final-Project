@@ -49,7 +49,6 @@ class StartScreen {
     } 
     else if (mode == 4) {
       currentGame = "maze"; //this should actually send them into the maze game
-      noLoop();
     } 
     else if (mode == 3) {
       background(0);
