@@ -1,7 +1,8 @@
 class Maze {
   PImage maze = loadImage("maze.jpg");
   PVector loc = new PVector(width/2,height/2);
-  float vel = 2.5;
+  float velOriginal = 5;
+  float vel = velOriginal;
   float diam = 30;
   float rot = -PI/2;
   
@@ -39,7 +40,7 @@ class Maze {
       }
       if (keyCode == SHIFT) {
         vel *= 1.05;
-      } else if (vel > 2.5) {
+      } else if (vel > velOriginal) {
         vel *= 0.95;
       }
     }
