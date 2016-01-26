@@ -3,7 +3,8 @@ int num = 25;
 int mode=0;
 
 String currentGame;
-int lives = 9;
+int lives=9;
+
 
 //int num = 25;
 //int mode=0;
@@ -48,12 +49,12 @@ int lives = 9;
 //}
 
 Maze maze;
-Platform platform;
+//Platform platform;
 BattleshipGame shipGame;
 
 StartScreen startScreen;
 
-GameOverScreen gameOverScreen;
+
 
 
 void setup() {
@@ -62,7 +63,7 @@ void setup() {
   currentGame = "startScreen";
 
   maze = new Maze();
-  platform = new Platform();
+ // platform = new Platform();
   shipGame = new BattleshipGame();
   startScreen = new StartScreen();
 }
@@ -76,19 +77,14 @@ void draw() {
     maze.display();
   }
 
-  if (currentGame == "battleShipGame") {
+  if (currentGame == "maze") {
     println("The maze is the current game.");
-
+  }
   if(currentGame == "battleShipGame") {
     shipGame.display();
   }
   
-  if(lives > 0){
-    text("Lives: " + lives, 50,0);
-  } else{
-    gameOverScreen.display();
-
-  }
+  
 }
 
 void mouseClicked() {
@@ -104,6 +100,10 @@ void mouseClicked() {
         startScreen.mode = 3;
       }
     } else if (startScreen.mode == 1) {
+      if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) {
+        startScreen.mode = 0;
+      }
+    } else if (startScreen.mode == 3){
       if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) {
         startScreen.mode = 0;
       }
