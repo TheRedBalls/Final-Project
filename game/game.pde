@@ -63,7 +63,7 @@ void setup() {
   currentGame = "startScreen";
 
   maze = new Maze();
- // platform = new Platform();
+ //platform = new Platform();
   shipGame = new BattleshipGame();
   startScreen = new StartScreen();
 }
@@ -88,25 +88,32 @@ void draw() {
 }
 
 void mouseClicked() {
-  if (currentGame == "startScreen") {
-    if (startScreen.mode == 0) {
-      if (10<=mouseX && mouseX<=130 && 470<=mouseY && mouseY<=495) {
+  if (currentGame == "startScreen"){ 
+    if (startScreen.mode == 0){ 
+      if (10<=mouseX && mouseX<=130 && 470<=mouseY && mouseY<=495){ 
         startScreen.mode = 1;
       }
-      if (190<=mouseX && mouseX<=310 && 420<=mouseY && mouseY<=470) {
+      if (190<=mouseX && mouseX<=310 && 420<=mouseY && mouseY<=470){ 
         startScreen.mode = 2;
       }
-      if (370<=mouseX && mouseX<=490 && 470<=mouseY && mouseY<=495) {
+      if (370<=mouseX && mouseX<=490 && 470<=mouseY && mouseY<=495){ 
         startScreen.mode = 3;
-      }
-    } else if (startScreen.mode == 1) {
-      if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) {
-        startScreen.mode = 0;
-      }
-    } else if (startScreen.mode == 3){
-      if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) {
-        startScreen.mode = 0;
-      }
     }
+    }
+     else if (startScreen.mode == 1){ 
+      if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475){ 
+        startScreen.mode = 0;
+      }
+     }
+     else if (startScreen.mode == 3){
+      if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475){ 
+        startScreen.mode = 0;
+      }
+     }
+   else if (startScreen.mode == 2){
+    if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475){ 
+    startScreen.mode = 4;
+}
+}
   }
 }
