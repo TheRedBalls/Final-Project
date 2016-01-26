@@ -54,8 +54,11 @@ class Platform {
     }
   }
   void hitPlatform() {
-    if (backgrounds.get(int(loc.x), int(loc.y)) == color(0)) {
+    if (backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height)) == color(0)) {
+      println("HIT");
       jumping = false;
+    } else {
+      jumping = true;
     }
   }
 }
