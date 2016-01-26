@@ -1,4 +1,5 @@
 class StartScreen {
+  PImage RedBall;
   int mode = 0;
 
   void display() {
@@ -11,8 +12,10 @@ class StartScreen {
       text("The Adventures Of...", width/2, 100);
       textSize(60);
       text("REDBALL!!!", width/2, 200);
-      fill(255, 0, 0);
-      ellipse(width/2, 300, 100, 100);
+      //fill(255, 0, 0);
+      //ellipse(width/2, 300, 100, 100);
+      RedBall=loadImage("redBallCharacter.jpg");
+      image(RedBall, width/3+25, 250, width/4, height/4);
       fill(255);
       rect(10, 470, 120, 25);
       textSize(15);
@@ -37,7 +40,7 @@ class StartScreen {
       text("Use the arrow keys to move.", width/2, height/2);  
       text("You might have to move the ball, the background, or something else.", width/2, height/2+50);  
       text("Who knows.", width/2, height/2+100);
-      fill(255,0,0);
+      fill(255, 0, 0);
       rect(200, 425, 100, 50);
       textAlign(CENTER);
       fill(0);
@@ -48,15 +51,22 @@ class StartScreen {
       noLoop();
     } else if (mode == 3) {
       background(0);
-     fill(255);
-     textSize(15);
-     text("Lead Programmers: Jason Wong and Skanda Rao", width/2, );
-     text("Graphics Designer: Myia Samuels", width/2, );
-     text("User Interface: Nafisa", width/2, );
-     text("De
-      noLoop();
+      fill(255);
+      textSize(15);
+      text("Lead Programmers: Jason Wong and Skanda Rao", width/2, height/2-100);
+      text("Graphics Designer: Myia Samuels", width/2, height/2-50);
+      text("User Interface: Nafisa Ahmed", width/2, height/2);
+      text("Debugger: Alison Price", width/2, height/2+50);
+      text("Project Manager: Lubna Lakhwala", width/2, height/2+100);
+      fill(255, 0, 0);
+      rect(200, 425, 100, 50);
+      textAlign(CENTER);
+      fill(0);
+      textSize(25);
+      text("BACK", width/2, 460);
     }
   }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   void mouseClicked() {
@@ -106,5 +116,7 @@ void startScreen () {
 >>>>>>> refs/remotes/origin/lubna-8)
 =======
 
+>>>>>>> refs/remotes/origin/development
+=======
 >>>>>>> refs/remotes/origin/development
 }
