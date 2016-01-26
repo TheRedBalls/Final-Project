@@ -58,7 +58,7 @@ StartScreen start;
 
 
 void setup() {
-  size(587,587);
+  size(500,500);
   noStroke();
 
   currentGame = "platform";
@@ -69,6 +69,7 @@ void setup() {
 }
 
 void draw() {
+  
   println("start");
   background(0);
   if (currentGame == "startScreen") {

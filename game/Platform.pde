@@ -1,21 +1,24 @@
 class Platform {
   PImage ball; 
   PVector loc, vel, acc;
-  boolean jumping = false;
+  boolean jumping = true;
   PImage backgrounds;
 
 
   Platform() {
-    backgrounds = loadImage("platformbackground.png");
+    backgrounds = loadImage("platformbackground.fw.png");
     ball = loadImage("ActualRedBallCharacter.jpg"); 
     vel = new PVector(0, 0);
     acc = new PVector(0, 0.1);
-    loc = new PVector(width/2, height/2);
+    loc = new PVector(0, height/10);
   }
 
   void move() {
-    vel.add(acc);
-    loc.add(vel);
+    if (!jumping) {
+      vel.set(0,0);
+    } else {
+      vel.add(acc);
+    }
     if (keyPressed) {
       if (keyCode == UP) {
         if (!jumping) {
@@ -30,7 +33,9 @@ class Platform {
         loc.x--;
       }
     }
+    loc.add(vel);
     hitBottom();
+    hitPlatform();
   }
   void run() {
     display();
@@ -42,14 +47,14 @@ class Platform {
     image(ball, loc.x, loc.y, ball.width, ball.height);
   }
   void hitBottom() {
-    print("jumping now");
+    //print("jumping now");
     if (loc.y + ball.width > height) {
       loc.y = height - ball.width; 
       jumping = false;
     }
   }
   void hitPlatform() {
-    if (vel.y > 0 && backgrounds.get(int(loc.x), int(loc.y)) == color(0)) {
+    if (backgrounds.get(int(loc.x), int(loc.y)) == color(0)) {
       jumping = false;
     }
   }
