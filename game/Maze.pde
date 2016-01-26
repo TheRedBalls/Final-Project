@@ -1,13 +1,16 @@
 class Maze {
   PImage maze = loadImage("maze.jpg");
   PVector loc = new PVector(width/2, height/2);
-  float vel = 2.5;
-  float diam = 30;
+  PImage ball = loadImage("redBallCharacter.png");
+  float velOriginal = 3;
+  float vel = velOriginal;
+  int diam = 30;
   float rot = -PI/2;
 
   void display() {
     background(255);
     imageMode(CENTER);
+    ball.resize(diam,diam);
     maze.resize(width*3, height*3);
 
     pushMatrix();
@@ -27,9 +30,7 @@ class Maze {
       loc.set(width/2, height/2);
     }
 
-    stroke(0);
-    fill(255, 0, 0);
-    ellipse(width/2, height/2, diam, diam);
+    image(ball, width/2,height/2);
 
     if (keyPressed) {
       if (keyCode == RIGHT) {
@@ -38,8 +39,10 @@ class Maze {
         rot -= 0.15;
       }
       if (keyCode == SHIFT) {
-        vel *= 1.05;
-      } else if (vel > 2.5) {
+        if (vel <= 2*velOriginal) {
+          vel *= 1.05;
+        }
+      } else if (vel > velOriginal) {
         vel *= 0.95;
       }
     }
