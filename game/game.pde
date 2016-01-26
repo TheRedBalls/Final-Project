@@ -49,7 +49,7 @@ int lives=9;
 //}
 
 Maze maze;
-//Platform platform;
+Platform platform;
 BattleshipGame shipGame;
 
 StartScreen startScreen;
@@ -62,7 +62,7 @@ void setup() {
   size(500,500);
   noStroke();
 
-  currentGame = "platform";
+  currentGame = "startScreen";
   start = new StartScreen();
   maze = new Maze();
 
