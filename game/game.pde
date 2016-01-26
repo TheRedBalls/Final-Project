@@ -54,39 +54,60 @@ BattleshipGame shipGame;
 
 StartScreen startScreen;
 
-
+GameOverScreen gameOverScreen;
+StartScreen start;
 
 
 void setup() {
-  size(500, 500);
+  size(500,500);
   noStroke();
-  currentGame = "startScreen";
 
+  currentGame = "platform";
+  start = new StartScreen();
   maze = new Maze();
+
  //platform = new Platform();
+
+  platform = new Platform();
+
   shipGame = new BattleshipGame();
   startScreen = new StartScreen();
 }
 
 void draw() {
+  
+  println("start");
   background(0);
   if (currentGame == "startScreen") {
+
     startScreen.display();
   }
   if (currentGame == "maze") {
     maze.display();
   }
 
-  if (currentGame == "maze") {
-    println("The maze is the current game.");
+  if (currentGame == "platform") {
+
+    platform.run();
+    println("platform ");
   }
-  if(currentGame == "battleShipGame") {
-    shipGame.display();
+
+  if (currentGame == "battleShipGame") {
+    println("The maze is the current game.");
+
+    if (currentGame == "battleShipGame") {
+      shipGame.display();
+    }
+
+    if (lives > 0) {
+      text("Lives: " + lives, 50, 0);
+    } else {
+      gameOverScreen.display();
+    }
   }
   
   
 }
-
 void mouseClicked() {
   if (currentGame == "startScreen"){ 
     if (startScreen.mode == 0){ 
