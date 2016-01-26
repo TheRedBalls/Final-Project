@@ -88,10 +88,8 @@ class BattleshipGame {
             if(gameBoard[target[0]+i][target[1]] == 0) { //if the square is not already occupied 
               gameBoard[target[0]+i][target[1]] = shipNumber;
             } else {
-              //revert changes
-              for(int j = i; j >= 0; j--) {
-                gameBoard[target[0]+j][target[1]] = 0;
-              }
+              //revert changes and generate new target
+              gameBoard = revertChanges(i-1, target, gameBoard);
               target[0] = int(random(computerBoard.length));
               target[1] = int(random(computerBoard[0].length));
               randomDirection = int(random(1));
@@ -99,6 +97,7 @@ class BattleshipGame {
               break;
             }
           } else {
+            gameBoard = revertChanges(i-1, target, gameBoard);
             target[0] = int(random(computerBoard.length));
             target[1] = int(random(computerBoard[0].length));
             randomDirection = int(random(1));
@@ -111,10 +110,7 @@ class BattleshipGame {
             if(gameBoard[target[0]][target[1]+i] == 0) { //if the square is not already occupied
               gameBoard[target[0]][target[1]+i] = shipNumber;
             } else {
-              //revert changes
-              for(int j = i; j >= 0; j--) {
-                gameBoard[target[0]][target[1]+j] = 0;
-              }
+              gameBoard = revertChanges(i-1, target, gameBoard);
               target[0] = int(random(computerBoard.length));
               target[1] = int(random(computerBoard[0].length));
               randomDirection = int(random(1));
@@ -122,6 +118,7 @@ class BattleshipGame {
               break; 
             }
           } else {
+            gameBoard = revertChanges(i-1, target, gameBoard);
             target[0] = int(random(computerBoard.length));
             target[1] = int(random(computerBoard[0].length));
             randomDirection = int(random(1));
@@ -145,6 +142,12 @@ class BattleshipGame {
     return board;
   }
   
+  int[][] revertChanges(int index, int[] target, int[][] board) {
+    for(int i = index; i >= 0; i--) {
+      board[target[0]+i][target[1]] = 0;
+    }
+    return board;
+  }
   
   
 }
