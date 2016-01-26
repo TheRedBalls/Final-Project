@@ -15,7 +15,7 @@ class StartScreen {
       //fill(255, 0, 0);
       //ellipse(width/2, 300, 100, 100);
       RedBall=loadImage("redBallCharacter.jpg");
-      image(RedBall, width/2, 300);
+      image(RedBall, width/3+25, 250, width/4, height/4);
       fill(255);
       rect(10, 470, 120, 25);
       textSize(15);
