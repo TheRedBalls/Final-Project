@@ -3,8 +3,6 @@ class Platform {
   PVector loc, vel, acc;
   boolean jumping = true;
   PImage backgrounds;
-
-
   Platform() {
     backgrounds = loadImage("platformbackground.fw.png");
     ball = loadImage("ActualRedBallCharacter.jpg"); 
