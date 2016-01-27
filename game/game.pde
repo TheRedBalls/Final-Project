@@ -75,8 +75,6 @@ void setup() {
 }
 
 void draw() {
-  
-  println("start");
   background(0);
   if (currentGame == "startScreen") {
 
