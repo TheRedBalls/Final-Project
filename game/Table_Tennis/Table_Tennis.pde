@@ -262,6 +262,7 @@ void mouseClicked() {
         paddle[0].diam = 150;
       } else if (mouseX >= 2*width/5 && mouseX <= 3*width/5 && mouseY >= 4*height/5 && mouseY <= 9*width/10) {
         mode = 1;
+        t = 30;
       }
     } else if (s1+s2 != 0) {
       if (mouseX >= 2*width/5 && mouseX <= 3*width/5 && mouseY >= 4*height/5 && mouseY <= 9*width/10) {
