@@ -3,7 +3,8 @@ class StartScreen {
   int mode = 0;
 
   void display() {
-    
+    rectMode(CORNER);
+    imageMode(CORNER);
     if (mode == 0) {
       background(0);
       size(500, 500);
