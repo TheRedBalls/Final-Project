@@ -22,8 +22,6 @@ void setup() {
   start = new StartScreen();
   maze = new Maze();
 
-  //platform = new Platform();
-
   platform = new Platform();
 
   shipGame = new BattleshipGame();

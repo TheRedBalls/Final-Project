@@ -2,7 +2,7 @@ class Maze {
   PImage maze = loadImage("maze.jpg");
   PVector loc = new PVector(width/2, height/2);
   PImage ball = loadImage("redBallCharacter.png");
-  float velOriginal = 3;
+  float velOriginal = 5;
   float vel = velOriginal;
   int diam = 30;
   float rot = -PI/2;
