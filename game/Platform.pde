@@ -50,7 +50,6 @@ class Platform {
     image(ball, loc.x, loc.y, ball.width, ball.height);
   }
   void hitBottom() {
-    //print("jumping now");
     if (loc.y + ball.height > height) {
       lives--;
       loc.set(0, height/10);
@@ -60,7 +59,6 @@ class Platform {
   }
   void hitPlatform() {
     if (vel.y >= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + 3*ball.height/4)) != color(0)) {
-      println("HIT");
       jumping = false;
     } else if (vel.y <= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height/4)) != color(0)) {
       vel.y *= -1;

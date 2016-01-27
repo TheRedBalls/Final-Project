@@ -1,5 +1,4 @@
 int num = 25;
-int mode=0;
 
 String currentGame;
 int lives=9;
@@ -78,13 +77,18 @@ void mouseClicked() {
       if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) { 
         startScreen.mode = 0;
       }
+    } else if (startScreen.mode == 2) {
+      if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) { 
+        startScreen.mode = 4;
+      }
     } else if (startScreen.mode == 3) {
       if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) { 
         startScreen.mode = 0;
       }
-    } else if (startScreen.mode == 2) {
-      if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) { 
-        startScreen.mode = 4;
+    } else if (startScreen.mode == 5) {
+      if (width/2-100<=mouseX && mouseX<=width/2+100 && 3*height/4+50<=mouseY && mouseY<=3*height/4+100) { 
+        lives = 9;
+        startScreen.mode = 0;
       }
     }
   } else if (currentGame == "gameOverScreen") {
