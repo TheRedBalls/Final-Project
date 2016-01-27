@@ -1,48 +1,54 @@
 class Maze {
   PImage maze = loadImage("maze.jpg");
-  PVector loc = new PVector(width/2,height/2);
+  PVector loc = new PVector(width/2, height/2);
+  PImage ball = loadImage("redBallCharacter.png");
   float velOriginal = 5;
   float vel = velOriginal;
-  float diam = 30;
+  int diam = 30;
   float rot = -PI/2;
-  
+
   void display() {
     background(255);
     imageMode(CENTER);
-    maze.resize(width*3,height*3);
-    
+    ball.resize(diam, diam);
+    maze.resize(width*3, height*3);
+
     pushMatrix();
-    translate(width/2,height/2);
+    translate(width/2, height/2);
     rotate(rot);
-    translate(loc.x-width/2,loc.y-height/2);
-    image(maze,0,0);
+    translate(loc.x-width/2, loc.y-height/2);
+    image(maze, 0, 0);
     popMatrix();
     filter(THRESHOLD);
 
     loc.x += vel*sin(rot);
     loc.y += vel*cos(rot);
-    
-    if (blue(get(width/2,height/2)) <= 5) {
+
+    if (blue(get(width/2, height/2)) <= 5) {
       lives--;
       rot = -PI/2;
-      loc.set(width/2,height/2);
+      loc.set(width/2, height/2);
     }
-    
-    stroke(0);
-    fill(255,0,0);
-    ellipse(width/2,height/2,diam,diam);
-    
+
+    image(ball, width/2, height/2);
+
     if (keyPressed) {
       if (keyCode == RIGHT) {
-        rot += 0.15;
+        rot += 0.1;
       } else if (keyCode == LEFT) {
-        rot -= 0.15;
+        rot -= 0.1;
       }
       if (keyCode == SHIFT) {
-        vel *= 1.05;
+        if (vel <= 2*velOriginal) {
+          vel *= 1.05;
+        }
       } else if (vel > velOriginal) {
         vel *= 0.95;
       }
+    }
+
+    if (dist(loc.x, loc.y, width/2, height/2) >= 3*width/2) {
+      currentGame = "platform";
     }
   }
 }
