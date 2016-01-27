@@ -14,6 +14,7 @@ class Platform {
   }
 
   void move() {
+    imageMode(CORNER);
     if (!jumping) {
       vel.set(0,0);
     } else {
@@ -25,8 +26,10 @@ class Platform {
           vel.y = -5;
           jumping = true;
         }
-      } else if (keyCode == DOWN) {
+      } else if (keyCode == DOWN && (loc.x <= width-55 || loc.y >= 90)) {
         loc.y++;
+      } else if (keyCode == DOWN) {
+        currentGame = "battleShipGame";
       } else if (keyCode == RIGHT) {
         loc.x++;
       } else if (keyCode == LEFT) {

@@ -2,7 +2,7 @@ int num = 25;
 int mode=0;
 
 String currentGame;
-int lives=1;
+int lives=9;
 
 Maze maze;
 Platform platform;
@@ -54,8 +54,11 @@ void draw() {
   }
 
   if (lives > 0) {
-    fill(0);
-    text("Lives: " + lives, 50, 0);
+    if (currentGame == "maze" || currentGame == "platform" || currentGame == "battleShipGame") {
+      fill(128);
+      textAlign(CENTER);
+      text("Lives: " + lives, width/2, 50);
+    }
   } else {
     currentGame = "gameOverScreen";
   }
