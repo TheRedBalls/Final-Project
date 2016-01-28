@@ -1,7 +1,7 @@
 class StartScreen {
   PImage RedBall;
   PImage Rectangle;
-  int mode = 7;
+  int mode = 0;
 
   void display() {
     rectMode(CORNER);
@@ -80,8 +80,6 @@ class StartScreen {
       fill(0);
       textSize(25);
       text("BACK", width/2, 460);
-    } else if (mode == 4) {
-      currentGame = "maze"; //this should actually send them into the maze game
     } else if (mode == 5) {
       background(0);
       Rectangle = loadImage("rektangle.png");
