@@ -1,4 +1,4 @@
-class ball {
+class ball { //birth of redball
 
   PImage redball;
   PVector loc;

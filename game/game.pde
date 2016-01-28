@@ -3,6 +3,7 @@ int num = 25;
 String currentGame;
 int lives=15;
 
+
 Maze maze; //declare game titles
 Platform platform; 
 BattleshipGame shipGame; 
@@ -62,7 +63,7 @@ void draw() {
   } //otherwise, shows game over screen aka you lose
 }
 
-void mouseClicked() { //allows player to click buttons
+void mouseClicked() { //allows player to click buttons & changes game mode
   if (currentGame == "startScreen") { 
     if (startScreen.mode == 0) { 
       if (10<=mouseX && mouseX<=130 && 470<=mouseY && mouseY<=495) { 
@@ -88,7 +89,7 @@ void mouseClicked() { //allows player to click buttons
       }
     } else if (startScreen.mode == 5) {
       if (width/2-100<=mouseX && mouseX<=width/2+100 && 3*height/4+50<=mouseY && mouseY<=3*height/4+100) {
-        lives = 9;
+        lives = 15;
         startScreen.mode = 0;
       }
     } else if (startScreen.mode == 6) {
@@ -106,5 +107,7 @@ void mouseClicked() { //allows player to click buttons
       currentGame = "startScreen";
       startScreen.mode = 0;
     }
+  } else if(currentGame == "battleShipGame") {
+    shipGame.squareIsClicked = true;
   }
 }
