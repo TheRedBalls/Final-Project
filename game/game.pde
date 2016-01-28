@@ -1,7 +1,7 @@
-int num = 25;
+int num = 25;  //declare and initialize integer number
 
-String currentGame;
-int lives=15;
+String currentGame;  //declare String
+int lives=15;  //declare and initialize lives integer
 
 
 Maze maze; //declare game titles
@@ -20,7 +20,7 @@ void setup() {
 
   currentGame = "startScreen"; //start of the game 
   start = new StartScreen();
-  maze = new Maze(); //defining the classes
+  maze = new Maze(); //initialize the classes
 
   platform = new Platform();
 
@@ -81,7 +81,7 @@ void mouseClicked() { //allows player to click buttons & changes game mode
       }
     } else if (startScreen.mode == 2) {
       if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) { 
-        startScreen.mode = 4;
+        currentGame = "maze";
       }
     } else if (startScreen.mode == 3) {
       if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) { 
@@ -107,7 +107,7 @@ void mouseClicked() { //allows player to click buttons & changes game mode
       currentGame = "startScreen";
       startScreen.mode = 0;
     }
-  } else if(currentGame == "battleShipGame") {
+  } else if (currentGame == "battleShipGame") {
     shipGame.squareIsClicked = true;
   }
 }
