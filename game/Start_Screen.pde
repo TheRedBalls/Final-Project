@@ -97,14 +97,17 @@ class StartScreen { //new class
       text("Didn't come up much in the actual game.", width/2, height/4+75);  //insert text
       text("But that's what you were doing, and you did it!", width/2, height/4+125);  //insert text
       text("You've unlocked the bonus game: Table Tennis!", width/2, height/4+175);  //insert text
-      text("Not that you couldn't have played it without beating this.", width/2, height/4+225);  //insert text
-      text("But you officially have our permission.", width/2, height/4+275);  //insert text
       rectMode(CENTER);  //align rectangle to center of canvas
+      fill(255);  //set fill to white
+      rect(width/2, 3*height/4-10, 200, 50);  //insert rectangle
+      fill(0);  //set text fill to black
+      textSize(25);  //set text size to 25
+      text("Table Tennis", width/2, 3*height/4);   //insert text
       fill(255);  //set fill to white
       rect(width/2, 3*height/4+75, 200, 50);  //insert rectangle
       fill(0);  //set text fill to black
       textSize(25);  //set text size to 25
-      text("Start Again?", width/2, 3*height/4+85);   //insert text
+      text("Main Menu", width/2, 3*height/4+85);   //insert text
     } else if (mode == 6) {  //if mode is equal to 6...
       background(0);  //set background color to black
       textAlign(CENTER);  //align text to center of canvas
