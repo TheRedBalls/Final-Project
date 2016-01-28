@@ -25,6 +25,7 @@ Ball ball;
 
 void setup() {
   size(500, 500, P3D);
+  frameRate(50);
   imageMode(CENTER);
 
   startScreen = loadImage("startScreen.jpg");
