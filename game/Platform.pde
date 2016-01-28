@@ -32,6 +32,8 @@ class Platform {
       } else if (keyCode == DOWN && (loc.x <= width-55 || loc.y >= 90)) {  //if DOWN key is pressed and ball has not reached the door at the top...
         loc.y++;        //move ball down
       } else if (keyCode == DOWN) {  //if DOWN key is pressed when the ball is at the door (end of platform game)...
+        loc.set(0, height/10);
+        jumping = true;
         currentGame = "startScreen";
         startScreen.mode = 6;         //..go to the startscreen for the battleship game
       } else if (keyCode == RIGHT) {  //if RIGHT key is pressed..
