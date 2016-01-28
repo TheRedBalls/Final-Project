@@ -14,6 +14,7 @@ class Platform {
   }
 
   void move() {
+    imageMode(CORNER);
     if (!jumping) {
       vel.set(0,0);
     } else {
@@ -25,8 +26,10 @@ class Platform {
           vel.y = -5;
           jumping = true;
         }
-      } else if (keyCode == DOWN) {
+      } else if (keyCode == DOWN && (loc.x <= width-55 || loc.y >= 90)) {
         loc.y++;
+      } else if (keyCode == DOWN) {
+        currentGame = "battleShipGame";
       } else if (keyCode == RIGHT) {
         loc.x++;
       } else if (keyCode == LEFT) {
@@ -47,7 +50,6 @@ class Platform {
     image(ball, loc.x, loc.y, ball.width, ball.height);
   }
   void hitBottom() {
-    //print("jumping now");
     if (loc.y + ball.height > height) {
       lives--;
       loc.set(0, height/10);
@@ -57,7 +59,6 @@ class Platform {
   }
   void hitPlatform() {
     if (vel.y >= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + 3*ball.height/4)) != color(0)) {
-      println("HIT");
       jumping = false;
     } else if (vel.y <= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height/4)) != color(0)) {
       vel.y *= -1;

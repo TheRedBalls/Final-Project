@@ -2,7 +2,7 @@ class Maze {
   PImage maze = loadImage("maze.jpg");
   PVector loc = new PVector(width/2, height/2);
   PImage ball = loadImage("redBallCharacter.png");
-  float velOriginal = 3;
+  float velOriginal = 5;
   float vel = velOriginal;
   int diam = 30;
   float rot = -PI/2;
@@ -10,7 +10,7 @@ class Maze {
   void display() {
     background(255);
     imageMode(CENTER);
-    ball.resize(diam,diam);
+    ball.resize(diam, diam);
     maze.resize(width*3, height*3);
 
     pushMatrix();
@@ -30,13 +30,13 @@ class Maze {
       loc.set(width/2, height/2);
     }
 
-    image(ball, width/2,height/2);
+    image(ball, width/2, height/2);
 
     if (keyPressed) {
       if (keyCode == RIGHT) {
-        rot += 0.15;
+        rot += 0.1;
       } else if (keyCode == LEFT) {
-        rot -= 0.15;
+        rot -= 0.1;
       }
       if (keyCode == SHIFT) {
         if (vel <= 2*velOriginal) {
@@ -45,6 +45,10 @@ class Maze {
       } else if (vel > velOriginal) {
         vel *= 0.95;
       }
+    }
+
+    if (dist(loc.x, loc.y, width/2, height/2) >= 3*width/2) {
+      currentGame = "platform";
     }
   }
 }
