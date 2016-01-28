@@ -7,7 +7,9 @@ class Maze {
   int diam = 30;
   float rot = -PI/2;
 
+
   void display() { //puts the maze image on the screen
+
     background(255);
     imageMode(CENTER);
     ball.resize(diam, diam);

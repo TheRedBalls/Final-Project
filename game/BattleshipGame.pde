@@ -1,6 +1,6 @@
 class BattleshipGame {
   boolean playing;
-  int[][] computerBoard = new int[10][10]; //mumber of rows and columns
+  int[][] computerBoard = new int[10][10]; //number of rows and columns
   boolean[][] revealedBoard = new boolean[10][10];
   int tries;
   int[] shipLengths;

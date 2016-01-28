@@ -1,15 +1,14 @@
-class Platform {   //create Platform class
-  PImage ball, backgrounds;      //declare PImages     
-  PVector loc, vel, acc;      // declare PVector
-  boolean jumping = true;   //declare boolean
-
-
-  Platform() {  //create constructor
-    backgrounds = loadImage("platformbackground.fw.png");  //load background image
-    ball = loadImage("redBallCharacter.png");  //load ball image
-    ball.resize(25, 25);   //resize ball
-    //initialize PVectors
-    vel = new PVector(0, 0);  
+class Platform {  //create Platform class
+  PImage ball, backgrounds; //declare PImages 
+  PVector loc, vel, acc; // declare PVector
+  boolean jumping = true; //declare boolean
+  
+  Platform() { //create constructor
+    backgrounds = loadImage("platformbackground.png"); //load background image
+    backgrounds.resize(500,500); //load ball image
+    ball = loadImage("redBallCharacter.png"); //resize ball
+    ball.resize(25,25);
+    vel = new PVector(0, 0); //initialize PVectors
     acc = new PVector(0, 0.1);
     loc = new PVector(0, height/10);
   }
@@ -21,6 +20,7 @@ class Platform {   //create Platform class
       vel.set(0, 0);   //..set velocity to 0
     } else {        //if ball is jumping,..
       vel.add(acc);   //..add acceleration to velocity to move faster
+
     }
     if (keyPressed) {
       if (keyCode == UP) {  //if UP key is pressed..
@@ -53,6 +53,7 @@ class Platform {   //create Platform class
     background(backgrounds);  //set background as background image of platforms
     image(ball, loc.x, loc.y, ball.width, ball.height);  //display ball image with location PVectors
   }
+
   void hitBottom() { //function for when the ball hits the bottom of the screen
     if (loc.y + ball.height > height) {  //if the bottom of the ball hits the bottom of the screen..
       lives--;  //..lose a life..
@@ -63,6 +64,7 @@ class Platform {   //create Platform class
   }
 
   void hitPlatform() {  //function for when ball hits the platforms
+
 
     if (vel.y >= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + 3*ball.height/4)) != color(0)) {
       jumping = false;  //if bottom of the ball is on top of platform, stop moving
