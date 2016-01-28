@@ -81,7 +81,7 @@ void mouseClicked() { //allows player to click buttons & changes game mode
       }
     } else if (startScreen.mode == 2) {
       if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) { 
-        startScreen.mode = 4;
+        currentGame = "maze";
       }
     } else if (startScreen.mode == 3) {
       if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) { 
