@@ -28,8 +28,8 @@ class Maze {
     loc.x += vel*sin(rot);
     loc.y += vel*cos(rot);
 
-    if (blue(get(width/2, height/2)) <= 5) { 
-      lives--; //lives lost in game if ball touches wall
+    if (get(width/2, height/2) == color(0)) {
+      lives--;
       rot = -PI/2;
       loc.set(width/2, height/2);
     }
@@ -54,6 +54,8 @@ class Maze {
     if (dist(loc.x, loc.y, width/2, height/2) >= 3*width/2) {
       currentGame = "startScreen";
       startScreen.mode = 7;
+      loc.set(width/2,height/2);
+      rot = -PI/2;
     }
   }
 }
