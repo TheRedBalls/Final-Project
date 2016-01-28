@@ -65,11 +65,11 @@ class Platform {   //create Platform class
   void hitPlatform() {  //function for when ball hits the platforms
 
     if (vel.y >= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + 3*ball.height/4)) != color(0)) {
-      jumping = false;  //if ball is already moving up, and
+      jumping = false;  //if bottom of the ball is on top of platform, stop moving
     } else if (vel.y <= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height/4)) != color(0)) {
-      vel.y *= -1;
+      vel.y *= -1;  //if top of ball hits bottom of platform, ball falls down
     } else {
-      jumping = true;
+      jumping = true;  //if centre of ball is not touching top or bottom of platform, ball continues jumping
     }
   }
 }

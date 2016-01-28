@@ -1,7 +1,7 @@
 class StartScreen {
   PImage RedBall;
   PImage Rectangle;
-  int mode = 7;
+  int mode = 0;
 
   void display() { //displays first start screen
     rectMode(CORNER);
