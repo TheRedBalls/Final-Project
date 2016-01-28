@@ -1,5 +1,5 @@
 class GameOverScreen {
-  void display() {
+  void display() { //displays this screen if all lives are lost
     background(0);
     fill(255, 0, 0);
     textSize(25);
