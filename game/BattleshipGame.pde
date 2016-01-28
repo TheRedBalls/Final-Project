@@ -187,5 +187,6 @@ class BattleshipGame {
   
   void endGame() {
     currentGame = "startScreen";
+    startScreen.mode = 5;
   }
 }
