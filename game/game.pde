@@ -63,7 +63,7 @@ void draw() {
   } //otherwise, shows game over screen aka you lose
 }
 
-void mouseClicked() { //allows player to click buttons
+void mouseClicked() { //allows player to click buttons & changes game mode
   if (currentGame == "startScreen") { 
     if (startScreen.mode == 0) { 
       if (10<=mouseX && mouseX<=130 && 470<=mouseY && mouseY<=495) { 
