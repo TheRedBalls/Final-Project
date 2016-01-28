@@ -18,7 +18,7 @@ void setup() {
   size(500, 500); //size of screen
   noStroke();
 
-  currentGame = "startScreen"; //start of the game 
+  currentGame = "platform"; //start of the game 
   start = new StartScreen();
   maze = new Maze(); //defining the classes
 
