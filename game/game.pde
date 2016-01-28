@@ -3,6 +3,7 @@ int num = 25;
 String currentGame;
 int lives=15;
 
+
 Maze maze; //declare game titles
 Platform platform; 
 BattleshipGame shipGame; 
@@ -106,5 +107,9 @@ void mouseClicked() { //allows player to click buttons
       currentGame = "startScreen";
       startScreen.mode = 0;
     }
+  }
+  
+  if(currentGame == "battleShipGame") {
+    shipGame.squareIsClicked = true;
   }
 }
