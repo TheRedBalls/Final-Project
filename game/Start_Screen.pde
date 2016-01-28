@@ -58,7 +58,7 @@ class StartScreen {
       text("If the ball hits the black wall, you lose a life.", width/2, height/4+125);
       text("You will also be sent back to the center of the maze.", width/2, height/4+175);
       text("Hold down shift to increase your speed.", width/2, height/4+225);
-      text("You have 9 lives.  Get ready.", width/2, height/4+275);
+      text("You have 15 lives.  Get ready.", width/2, height/4+275);
       fill(255, 0, 0);
       rect(200, 425, 100, 50);
       textAlign(CENTER);
