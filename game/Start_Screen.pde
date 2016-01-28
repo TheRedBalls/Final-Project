@@ -101,7 +101,7 @@ class StartScreen {
       image(Rectangle, 75, 50);
       text("HUZZAH!", width/2, height/4-25);
       textSize(15);
-      text("You've defeated the evil rectangle and saved your home world!", width/2, height/4+25);
+      text("You've defeated the evil REKTangle and saved your home world!", width/2, height/4+25);
       text("Didn't come up much in the actual game.", width/2, height/4+75);
       text("But that's what you were doing, and you did it!", width/2, height/4+125);
       text("You've unlocked the bonus game: Table Tennis!", width/2, height/4+175);
