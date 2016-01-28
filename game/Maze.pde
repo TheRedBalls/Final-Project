@@ -48,7 +48,8 @@ class Maze {
     }
 
     if (dist(loc.x, loc.y, width/2, height/2) >= 3*width/2) {
-      currentGame = "platform";
+      currentGame = "startScreen";
+      startScreen.mode = 7;
     }
   }
 }
