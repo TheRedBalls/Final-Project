@@ -1,7 +1,7 @@
 class StartScreen {
   PImage RedBall;
   PImage Rectangle;
-  int mode = 0;
+  int mode = 5;
 
   void display() {
     rectMode(CORNER); //displays the start screen w/ credits and instructions
@@ -105,17 +105,18 @@ class StartScreen {
       text("Didn't come up much in the actual game.", width/2, height/4+75);
       text("But that's what you were doing, and you did it!", width/2, height/4+125);
       text("You've unlocked the bonus game: Table Tennis!", width/2, height/4+175);
-      text("Not that you couldn't have played it without beating this.", width/2, height/4+225);
-      text("But you officially have our permission.", width/2, height/4+275);
       rectMode(CENTER);
+      fill(255);
+      rect(width/2, 3*height/4-10, 200, 50);
+      fill(0);
+      textSize(25);
+      text("Table Tennis", width/2, 3*height/4);      
       fill(255);
       rect(width/2, 3*height/4+75, 200, 50);
       fill(0);
       textSize(25);
-
-      text("Start Again?", width/2, 3*height/4+85);
+      text("Main Menu", width/2, 3*height/4+85);
     } else if (mode == 6) { //screen to introduce the battleship game
-
       background(0);
       textAlign(CENTER);
       textSize(20);

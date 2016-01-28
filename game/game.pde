@@ -16,7 +16,7 @@ TableTennis tableTennis;
 
 
 void setup() {
-  size(500, 500); //size of screen
+  size(500, 500,P3D); //size of screen
   frameRate(50);
   noStroke();
 
@@ -52,6 +52,10 @@ void draw() {
 
   if (currentGame == "gameOverScreen") {
     gameOverScreen.display();
+  }
+
+  if (currentGame == "tableTennis") {
+    tableTennis.display();
   }
 
   if (lives > 0) {
@@ -91,6 +95,9 @@ void mouseClicked() { //allows player to click buttons & changes game mode
         startScreen.mode = 0;
       }
     } else if (startScreen.mode == 5) {
+      if (width/2-100<=mouseX && mouseX<=width/2+100 && 3*height/4-35<=mouseY && mouseY<=3*height/4+15) {
+        currentGame = "tableTennis";
+      }
       if (width/2-100<=mouseX && mouseX<=width/2+100 && 3*height/4+50<=mouseY && mouseY<=3*height/4+100) {
         lives = 15;
         startScreen.mode = 0;
