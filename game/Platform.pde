@@ -29,7 +29,8 @@ class Platform {
       } else if (keyCode == DOWN && (loc.x <= width-55 || loc.y >= 90)) {
         loc.y++;
       } else if (keyCode == DOWN) {
-        currentGame = "battleShipGame";
+        currentGame = "startScreen";
+        startScreen.mode = 6;
       } else if (keyCode == RIGHT) {
         loc.x++;
       } else if (keyCode == LEFT) {
