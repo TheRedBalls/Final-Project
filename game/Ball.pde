@@ -1,10 +1,10 @@
-class ball {
+class ball { //birth of redball
 
-  PImage redball;
-  PVector loc;
+  PImage redball;  //declare ball PImage
+  PVector loc;   //declare location PVector
 
-  ball() {
-    redball = loadImage("ActualRedBallCharacter.jpg");
-    loc = new PVector(mouseX, mouseY);
+  ball() {  //create ball function
+    redball = loadImage("ActualRedBallCharacter.jpg");  //load image of red ball
+    loc = new PVector(mouseX, mouseY);  //initialize location PVector
   }
 }

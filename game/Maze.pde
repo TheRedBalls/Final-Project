@@ -27,7 +27,7 @@ class Maze {
     loc.x += vel*sin(rot);
     loc.y += vel*cos(rot);
 
-    if (blue(get(width/2, height/2)) <= 5) {
+    if (get(width/2, height/2) == color(0)) {
       lives--;
       rot = -PI/2;
       loc.set(0, 0);
@@ -36,9 +36,9 @@ class Maze {
     image(ball, width/2, height/2);
 
     if (keyPressed) {
-      if (keyCode == RIGHT) {
+      if (keyCode == RIGHT) { //rotates image to the right
         rot += 0.1;
-      } else if (keyCode == LEFT) {
+      } else if (keyCode == LEFT) { //rotates image left
         rot -= 0.1;
       }
       if (keyCode == SHIFT) {
@@ -53,6 +53,8 @@ class Maze {
     if (dist(loc.x, loc.y, 0, 0) >= 3*width/2) {
       currentGame = "startScreen";
       startScreen.mode = 7;
+      loc.set(width/2,height/2);
+      rot = -PI/2;
     }
   }
 }
