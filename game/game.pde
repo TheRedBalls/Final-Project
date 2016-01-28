@@ -1,11 +1,12 @@
-int num = 25;
+int num = 25;  //declare and initialize integer number
 
-String currentGame;
-int lives=9;
+String currentGame;  //declare String
+int lives=15;  //declare and initialize lives integer
 
-Maze maze;
-Platform platform;
-BattleshipGame shipGame;
+
+Maze maze; //declare game titles
+Platform platform; 
+BattleshipGame shipGame; 
 
 StartScreen startScreen;
 
@@ -14,12 +15,12 @@ StartScreen start;
 
 
 void setup() {
-  size(500, 500);
+  size(500, 500); //size of screen
   noStroke();
 
-  currentGame = "startScreen";
+  currentGame = "startScreen"; //start of the game 
   start = new StartScreen();
-  maze = new Maze();
+  maze = new Maze(); //initialize the classes
 
   platform = new Platform();
 
@@ -32,7 +33,7 @@ void draw() {
   background(0);
   if (currentGame == "startScreen") {
     startScreen.display();
-  }
+  } //displays each screen based on current game
 
   if (currentGame == "maze") {
     maze.display();
@@ -54,14 +55,15 @@ void draw() {
     if (currentGame == "maze" || currentGame == "platform" || currentGame == "battleShipGame") {
       fill(128);
       textAlign(CENTER);
+      textSize(25);
       text("Lives: " + lives, width/2, 50);
-    }
+    } //displays lives if game is in progress
   } else {
     currentGame = "gameOverScreen";
-  }
+  } //otherwise, shows game over screen aka you lose
 }
 
-void mouseClicked() {
+void mouseClicked() { //allows player to click buttons & changes game mode
   if (currentGame == "startScreen") { 
     if (startScreen.mode == 0) { 
       if (10<=mouseX && mouseX<=130 && 470<=mouseY && mouseY<=495) { 
@@ -79,23 +81,33 @@ void mouseClicked() {
       }
     } else if (startScreen.mode == 2) {
       if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) { 
-        startScreen.mode = 4;
+        currentGame = "maze";
       }
     } else if (startScreen.mode == 3) {
       if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) { 
         startScreen.mode = 0;
       }
     } else if (startScreen.mode == 5) {
-      if (width/2-100<=mouseX && mouseX<=width/2+100 && 3*height/4+50<=mouseY && mouseY<=3*height/4+100) { 
-        lives = 9;
+      if (width/2-100<=mouseX && mouseX<=width/2+100 && 3*height/4+50<=mouseY && mouseY<=3*height/4+100) {
+        lives = 15;
         startScreen.mode = 0;
+      }
+    } else if (startScreen.mode == 6) {
+      if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) { 
+        currentGame = "battleShipGame";
+      }
+    } else if (startScreen.mode == 7) {
+      if (200<=mouseX && mouseX<=300 && 425<=mouseY && mouseY<=475) { 
+        currentGame = "platform";
       }
     }
   } else if (currentGame == "gameOverScreen") {
-    if (mouseX >= width/2-100 && mouseX <= width/2+100 && mouseY >= height/2+15 && mouseY <= height/2+65) {
-      lives = 9;
+    if (mouseX >= width/2-100 && mouseX <= width/2+100 && mouseY >= height/2+65 && mouseY <= height/2+115) {
+      lives = 15;
       currentGame = "startScreen";
       startScreen.mode = 0;
     }
+  } else if (currentGame == "battleShipGame") {
+    shipGame.squareIsClicked = true;
   }
 }

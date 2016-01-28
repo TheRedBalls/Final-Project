@@ -1,15 +1,17 @@
 class BattleshipGame {
   boolean playing;
-  int[][] computerBoard = new int[10][10]; //mumber of rows and columns
+  int[][] computerBoard = new int[10][10]; //number of rows and columns
   boolean[][] revealedBoard = new boolean[10][10];
   int tries;
   int[] shipLengths;
+  int moves;
+  boolean squareIsClicked;
   
   BattleshipGame() {
     playing = true;
     shipLengths = new int[3]; //to keep track of which ones have been done, ship[0], ship[1], and ship[2]
     computerBoard = computerSetup(computerBoard);
-    revealedBoard = fillFalse(revealedBoard);
+    squareIsClicked = false;
   }
   
   void display() {
@@ -31,28 +33,40 @@ class BattleshipGame {
         }
       }
     }
+    fill(128);
+    text("Moves left: " + moves, width/2, height - 50);
     checkClick();
+    squareIsClicked = false;
     noStroke(); //other games don't use stroke
   }
   
   void checkClick() {
+    
     //test which square the mouse clicked in if mouse is pressed at all
-    if(mousePressed) {
+    if(squareIsClicked && moves > 0) {
       int[] squareNumber = new int[2];
       if(mouseX/(width/10) < 10 && mouseY/(height/10) < 10 && mouseX/(width/10) >= 0 && mouseY/(height/10) >= 0) { //if the user clicked a valid square
+        moves--;
         squareNumber[0] = mouseX/(width/10);
         squareNumber[1] = mouseY/(height/10);
         
         if(computerBoard[squareNumber[0]][squareNumber[1]] != 0) {
           revealedBoard[squareNumber[0]][squareNumber[1]] = true; 
+          if(allEmpty()) {
+            endGame();
+          }
         }
       }
       
+    } else if(moves == 0) {
+      reset();
     }
+
   }
   
   //setup the computer battleships
   int[][] computerSetup(int[][] computerBoard) {
+    moves = 50;
     int[] shipLengths = {2, 3, 4, 5}; //to keep track of which ones have been done, ship[0], ship[1], and ship[2]
     for(int i = 0; i < computerBoard.length; i++) { //set each square to zero
       for(int j = 0; j < computerBoard[i].length; j++) {
@@ -67,13 +81,7 @@ class BattleshipGame {
       computerBoard = place(randomTarget, randomDirection, computerBoard, shipLengths[k]);
       
     }
-    
-    for(int i = 0; i < computerBoard.length; i++) { //set each square to zero
-      for(int j = 0; j < computerBoard[i].length; j++) {
-        print(computerBoard[i][j]);
-      }
-      println("");
-    }
+    revealedBoard = fillFalse(revealedBoard);
     return computerBoard;
   }
   
@@ -158,5 +166,27 @@ class BattleshipGame {
     return board;
   }
   
+  boolean allEmpty() {
+    for(int i = 0; i < revealedBoard.length; i++) { //set each square to zero
+      for(int j = 0; j < revealedBoard[i].length; j++) {
+        if(revealedBoard[i][j] == false) {
+          if(computerBoard[i][j] != 0) {
+            return false;
+          }
+        }
+      }
+    }
+    return true;
+  }
   
+  void reset() {
+    lives--;
+    moves=50;
+    computerSetup(computerBoard);
+  }
+  
+  void endGame() {
+    currentGame = "startScreen";
+    startScreen.mode = 5;
+  }
 }
