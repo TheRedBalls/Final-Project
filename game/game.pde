@@ -3,6 +3,7 @@ int num = 25;
 String currentGame;
 int lives=9;
 
+
 Maze maze;
 Platform platform;
 BattleshipGame shipGame;
@@ -17,7 +18,7 @@ void setup() {
   size(500, 500);
   noStroke();
 
-  currentGame = "startScreen";
+  currentGame = "battleShipGame";
   start = new StartScreen();
   maze = new Maze();
 
@@ -62,6 +63,7 @@ void draw() {
 }
 
 void mouseClicked() {
+  
   if (currentGame == "startScreen") { 
     if (startScreen.mode == 0) { 
       if (10<=mouseX && mouseX<=130 && 470<=mouseY && mouseY<=495) { 
@@ -97,5 +99,9 @@ void mouseClicked() {
       currentGame = "startScreen";
       startScreen.mode = 0;
     }
+  }
+  
+  if(currentGame == "battleShipGame") {
+    shipGame.squareIsClicked = true;
   }
 }
