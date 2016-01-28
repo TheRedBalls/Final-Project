@@ -3,15 +3,18 @@ class Platform {
   PVector loc, vel, acc;
   boolean jumping = true;
   PImage backgrounds;
+  
   Platform() {
     backgrounds = loadImage("platformbackground.fw.png");
-    ball = loadImage("ActualRedBallCharacter.jpg"); 
+    ball = loadImage("redBallCharacter.png");
+    ball.resize(25,25);
     vel = new PVector(0, 0);
     acc = new PVector(0, 0.1);
     loc = new PVector(0, height/10);
   }
 
   void move() {
+    imageMode(CORNER);
     if (!jumping) {
       vel.set(0,0);
     } else {
@@ -23,8 +26,10 @@ class Platform {
           vel.y = -5;
           jumping = true;
         }
-      } else if (keyCode == DOWN) {
+      } else if (keyCode == DOWN && (loc.x <= width-55 || loc.y >= 90)) {
         loc.y++;
+      } else if (keyCode == DOWN) {
+        currentGame = "battleShipGame";
       } else if (keyCode == RIGHT) {
         loc.x++;
       } else if (keyCode == LEFT) {
@@ -45,16 +50,18 @@ class Platform {
     image(ball, loc.x, loc.y, ball.width, ball.height);
   }
   void hitBottom() {
-    //print("jumping now");
-    if (loc.y + ball.width > height) {
-      loc.y = height - ball.width; 
-      jumping = false;
+    if (loc.y + ball.height > height) {
+      lives--;
+      loc.set(0, height/10);
+      vel.set(0,0);
+      jumping = true;
     }
   }
   void hitPlatform() {
-    if (backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height)) == color(0)) {
-      println("HIT");
+    if (vel.y >= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + 3*ball.height/4)) != color(0)) {
       jumping = false;
+    } else if (vel.y <= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height/4)) != color(0)) {
+      vel.y *= -1;
     } else {
       jumping = true;
     }
