@@ -27,7 +27,7 @@ class Maze {
     loc.x += vel*sin(rot);
     loc.y += vel*cos(rot);
 
-    if (get(width/2, height/2) == color(0)) {
+    if (get(width/2, height/2) == color(1)) {
       lives--;
       rot = -PI/2;
       loc.set(0, 0);
