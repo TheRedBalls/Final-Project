@@ -1,45 +1,45 @@
-class StartScreen {
-  PImage RedBall;
-  PImage Rectangle;
-  int mode = 0;
+class StartScreen { //new class
+  PImage RedBall;  //declare PImage
+  PImage Rectangle;  //declare PImage
+  int mode = 0;  //declare integer mode
 
   void display() {
-    rectMode(CORNER);
-    imageMode(CORNER);
-    if (mode == 0) {
-      background(0);
-      size(500, 500);
-      textAlign(CENTER);
-      textSize(25);
-      fill(255);
-      text("The Adventures Of...", width/2, 100);
-      textSize(60);
-      text("REDBALL!!!", width/2, 200);
-      RedBall=loadImage("redBallCharacter.jpg");
-      image(RedBall, width/3+25, 250, width/4, height/4);
-      fill(255);
-      rect(10, 470, 120, 25);
-      textSize(15);
-      fill(0);
-      text("INSTRUCTIONS", 70, 487); 
-      fill(255);
-      rect(190, 420, 120, 50);
-      textSize(25);
-      fill(0);
-      text("START!", 250, 455);
-      fill(255);
-      rect(370, 470, 120, 25); 
-      textSize(15);
-      fill(0);
-      text("CREDITS", 430, 487);
-    } else if (mode == 1) {
-      background(0);
-      fill(255);
-      textSize(14);
-      text("You are playing as Redball: a poor little ball lost in an unknown world.", width/2, height/2-100);
-      text("Your job?  To guide him through it.", width/2, height/2-50);  
-      text("Use the arrow keys to move.", width/2, height/2);  
-      text("You might have to move the ball, the background, or something else.", width/2, height/2+50);  
+    rectMode(CORNER);  //set base point of rectangle
+    imageMode(CORNER);  //set base point of image
+    if (mode == 0) {  //if mode is equal to 0...
+      background(0);  //set background color to black
+      size(500, 500);  //set canvas size
+      textAlign(CENTER);  //align text to center of canvas
+      textSize(25);  //set text size to 25
+      fill(255);  //set text fill to white
+      text("The Adventures Of...", width/2, 100);  //insert text
+      textSize(60);  //set text size to 60
+      text("REDBALL!!!", width/2, 200);  //insert text
+      RedBall=loadImage("redBallCharacter.jpg");  //load redBallCharacter image
+      image(RedBall, width/3+25, 250, width/4, height/4);  //insert redBallCharacter image
+      fill(255);  //set fill to white
+      rect(10, 470, 120, 25);  //insert rectangle
+      textSize(15);  //set text size to 15
+      fill(0);  //set text fill to black
+      text("INSTRUCTIONS", 70, 487);  //insert instructions
+      fill(255);  //set fill to white
+      rect(190, 420, 120, 50);  //insert rectangle
+      textSize(25);  //set text size to 25
+      fill(0);  //set text fill to black
+      text("START!", 250, 455);  //insert text
+      fill(255);  //set text fill to white
+      rect(370, 470, 120, 25);  //insert rectangle
+      textSize(15);  //set text size
+      fill(0);  //set text fill to black
+      text("CREDITS", 430, 487);  //insert text
+    } else if (mode == 1) {  //if mode is equal to 1...
+      background(0);  //set background color to black
+      fill(255);  //set text fill to white
+      textSize(14);  //set text size to 14
+      text("You are playing as Redball: a poor little ball lost in an unknown world.", width/2, height/2-100);  //insert text
+      text("Your job?  To guide him through it.", width/2, height/2-50);  //insert text
+      text("Use the arrow keys to move.", width/2, height/2);  //insert text
+      text("You might have to move the ball, the background, or something else.", width/2, height/2+50);  //  
       text("Who knows.", width/2, height/2+100);
       fill(255, 0, 0);
       rect(200, 425, 100, 50);
@@ -71,9 +71,9 @@ class StartScreen {
       textSize(20);
       text("Lead Programmers: Jason Wong and Skanda Rao", width/2, height/2-100);
       text("Graphics Designer: Myia Samuels", width/2, height/2-50);
-      text("User Interface: Nafisa Ahmed", width/2, height/2);
+      text("User Interface: Lubna Lakhwala", width/2, height/2);
       text("Debugger: Alison Price", width/2, height/2+50);
-      text("Project Manager: Lubna Lakhwala", width/2, height/2+100);
+      text("Project Manager: Nafisa Ahmed", width/2, height/2+100);
       fill(255, 0, 0);
       rect(200, 425, 100, 50);
       textAlign(CENTER);
