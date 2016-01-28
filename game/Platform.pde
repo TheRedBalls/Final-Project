@@ -5,7 +5,8 @@ class Platform {
   PImage backgrounds;
   
   Platform() {
-    backgrounds = loadImage("platformbackground.fw.png");
+    backgrounds = loadImage("platformbackground.png");
+    backgrounds.resize(500,500);
     ball = loadImage("redBallCharacter.png");
     ball.resize(25,25);
     vel = new PVector(0, 0);
