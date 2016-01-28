@@ -107,9 +107,7 @@ void mouseClicked() { //allows player to click buttons
       currentGame = "startScreen";
       startScreen.mode = 0;
     }
-  }
-  
-  if(currentGame == "battleShipGame") {
+  } else if(currentGame == "battleShipGame") {
     shipGame.squareIsClicked = true;
   }
 }
