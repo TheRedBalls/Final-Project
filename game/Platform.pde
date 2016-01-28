@@ -1,16 +1,14 @@
-
-class Platform {   //create Platform class
-  PImage ball, backgrounds;      //declare PImages     
-  PVector loc, vel, acc;      // declare PVector
-  boolean jumping = true;   //declare boolean
-
-
-  Platform() {  //create constructor
-    backgrounds = loadImage("platformbackground.fw.png");  //load background image
-    ball = loadImage("redBallCharacter.png");  //load ball image
-    ball.resize(25, 25);   //resize ball
-    //initialize PVectors
-    vel = new PVector(0, 0);  
+class Platform {  //create Platform class
+  PImage ball, backgrounds; //declare PImages 
+  PVector loc, vel, acc; // declare PVector
+  boolean jumping = true; //declare boolean
+  
+  Platform() { //create constructor
+    backgrounds = loadImage("platformbackground.png"); //load background image
+    backgrounds.resize(500,500); //load ball image
+    ball = loadImage("redBallCharacter.png"); //resize ball
+    ball.resize(25,25);
+    vel = new PVector(0, 0); //initialize PVectors
     acc = new PVector(0, 0.1);
     loc = new PVector(0, height/10);
   }
