@@ -14,6 +14,7 @@ class Platform {   //create Platform class
     loc = new PVector(0, height/10);
   }
 
+
   void move() {  //create function to move ball
     imageMode(CORNER);  //set background to align with the corner
     if (!jumping) {  //if ball is not jumping,..
@@ -24,11 +25,12 @@ class Platform {   //create Platform class
     if (keyPressed) {
       if (keyCode == UP) {  //if UP key is pressed..
         if (!jumping) {    //...and the ball is not already jumping...
+
           vel.y = -5;
           jumping = true;  //...let ball jump up (with velocity of 5)
         }
       } else if (keyCode == DOWN && (loc.x <= width-55 || loc.y >= 90)) {  //if DOWN key is pressed and ball has not reached the door at the top...
-        loc.y++;        //move ball down        
+        loc.y++;        //move ball down
       } else if (keyCode == DOWN) {  //if DOWN key is pressed when the ball is at the door (end of platform game)...
         currentGame = "startScreen";
         startScreen.mode = 6;         //..go to the startscreen for the battleship game
@@ -59,9 +61,11 @@ class Platform {   //create Platform class
       jumping = true; //..and set jumping to true (so can't jump while falling to the bottom left platform)
     }
   }
+
   void hitPlatform() {  //function for when ball hits the platforms
+
     if (vel.y >= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + 3*ball.height/4)) != color(0)) {
-      jumping = false;  //if ball is already moving up, and 
+      jumping = false;  //if ball is already moving up, and
     } else if (vel.y <= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height/4)) != color(0)) {
       vel.y *= -1;
     } else {
