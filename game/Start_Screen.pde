@@ -3,13 +3,8 @@ class StartScreen {
   PImage Rectangle;
   int mode = 0;
 
-<<<<<<< HEAD
   void display() {
     rectMode(CORNER); //displays the start screen w/ credits and instructions
-=======
-  void display() { //displays first start screen
-    rectMode(CORNER);
->>>>>>> origin/Myia
     imageMode(CORNER);
     if (mode == 0) {
       background(0);
@@ -55,32 +50,28 @@ class StartScreen {
     } else if (mode==2) {//screen for instructions
       background(0);
       fill(255);
-<<<<<<< HEAD
+
       textSize(25); 
       text("INSTRUCTIONS FOR MAZE GAME", width/2, height/6);
-=======
-      textSize(25);
-      text("INSTRUCTIONS FOR MAZE GAME", width/2, height/6); //instructions
->>>>>>> origin/Myia
+
       textSize(15);
       text("Guide the ball through the maze.", width/2, height/4+25);
       text("Use the left and right arrow keys to turn the maze.", width/2, height/4+75);
       text("If the ball hits the black wall, you lose a life.", width/2, height/4+125);
       text("You will also be sent back to the center of the maze.", width/2, height/4+175);
       text("Hold down shift to increase your speed.", width/2, height/4+225);
+
       text("You have 15 lives.  Get ready.", width/2, height/4+275);
+
       fill(255, 0, 0);
       rect(200, 425, 100, 50);
       textAlign(CENTER);
       fill(0);
       textSize(25);
-<<<<<<< HEAD
+
       text("START!", width/2, 460);
     } else if (mode == 3) { //screen for credits
-=======
-      text("START!", width/2, 460); // takkes you to game
-    } else if (mode == 3) {
->>>>>>> origin/Myia
+
       background(0);
       fill(255);
       textSize(20);
@@ -97,11 +88,9 @@ class StartScreen {
       text("BACK", width/2, 460);
     } else if (mode == 4) {
       currentGame = "maze"; //this should actually send them into the maze game
-<<<<<<< HEAD
+
     } else if (mode == 5) { //final screen if you win the whole game
-=======
-    } else if (mode == 5) { //screen if you win the whole thing 
->>>>>>> origin/Myia
+
       background(0);
       Rectangle = loadImage("rektangle.png");
       Rectangle.resize(100, 50);
@@ -123,13 +112,10 @@ class StartScreen {
       rect(width/2, 3*height/4+75, 200, 50);
       fill(0);
       textSize(25);
-<<<<<<< HEAD
+
       text("Start Again?", width/2, 3*height/4+85);
     } else if (mode == 6) { //screen to introduce the battleship game
-=======
-      text("Start Again?", width/2, 3*height/4+85); //back to home screen
-    } else if (mode == 6) {
->>>>>>> origin/Myia
+
       background(0);
       textAlign(CENTER);
       textSize(20);
@@ -149,7 +135,7 @@ class StartScreen {
       text("YOU WILL HAVE TO SEARCH FOR 4 SHIPS ON THE GRID.", width/2, 140);
       text("CLICK ON ONE SQUARE AT TIME", width/2, 160); 
       text("TO POSSIBLY REVEAL THE LOCATION OF A SHIP.", width/2, 180);
-      text("YOU HAVE A LIMIT OF 20 MOVES TO FIND ALL 4 SHIPS.   ", width/2, 200);
+      text("YOU HAVE A LIMIT OF " + shipGame.moves + " MOVES TO FIND ALL 4 SHIPS.   ", width/2, 200);
       text("DON'T LOSE! :D", width/2, 240);
     } else if (mode == 7) { //intro to platform game
       background(0);
