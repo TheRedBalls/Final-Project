@@ -2,7 +2,7 @@ class Maze {
   PImage maze = loadImage("maze.jpg");
   PVector loc = new PVector(width/2, height/2);
   PImage ball = loadImage("redBallCharacter.png");
-  float velOriginal = 5;
+  float velOriginal = 4;
   float vel = velOriginal;
   int diam = 30;
   float rot = -PI/2;
@@ -48,7 +48,8 @@ class Maze {
     }
 
     if (dist(loc.x, loc.y, width/2, height/2) >= 3*width/2) {
-      currentGame = "platform";
+      currentGame = "startScreen";
+      startScreen.mode = 7;
     }
   }
 }

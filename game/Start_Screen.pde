@@ -85,7 +85,7 @@ class StartScreen {
     } else if (mode == 5) {
       background(0);
       Rectangle = loadImage("rektangle.png");
-      Rectangle.resize(100,50);
+      Rectangle.resize(100, 50);
       fill(255);
       textSize(25);
       imageMode(CENTER);
@@ -101,10 +101,56 @@ class StartScreen {
       text("But you officially have our permission.", width/2, height/4+275);
       rectMode(CENTER);
       fill(255);
-      rect(width/2,3*height/4+75,200,50);
+      rect(width/2, 3*height/4+75, 200, 50);
       fill(0);
       textSize(25);
       text("Start Again?", width/2, 3*height/4+85);
+    } else if (mode == 6) {
+      background(0);
+      textAlign(CENTER);
+      textSize(20);
+      fill(255);
+      fill(255, 0, 0);
+      rect(200, 425, 100, 50);
+      textAlign(CENTER);
+      fill(0);
+      textSize(25);
+      text("START!", width/2, 460);
+      fill(255);
+      textSize(25);
+      text("INSTRUCTIONS FOR BATTLESHIP", width/2, 50); //title of page 
+      textSize(14);
+      textAlign(CENTER);
+      text("FOR THIS BATTLESHIP GAME,", width/2, 120); //instructions
+      text("YOU WILL HAVE TO SEARCH FOR 4 SHIPS ON THE GRID.", width/2, 140);
+      text("CLICK ON ONE SQUARE AT TIME", width/2, 160); 
+      text("TO POSSIBLY REVEAL THE LOCATION OF A SHIP.", width/2, 180);
+      text("YOU HAVE A LIMIT OF 20 MOVES TO FIND ALL 4 SHIPS.   ", width/2, 200);
+      text("DON'T LOSE! :D", width/2, 240);
+    } else if (mode == 7) {
+      background(0);
+      textAlign(CENTER);
+      textSize(20);
+      fill(255);
+      fill(255, 0, 0);
+      rect(200, 425, 100, 50);
+      textAlign(CENTER);
+      fill(0);
+      textSize(25);
+      text("START!", width/2, 460);
+      fill(255);
+      textSize(25);
+      text("INSTRUCTIONS FOR PLATFORM", width/2, 50); //title of page 
+      textSize(14);
+      textAlign(CENTER);
+      text("YOU WILL NOW HAVE TO COMPLETE A PLATFORM GAME!", width/2, 150); //instructions
+      text("USE UP TO JUMP", width/2, 170); 
+      text("USE LEFT/RIGHT TO MOVE", width/2, 190); 
+      text("IF YOU HIT THE BOTTOM OF THE SCREEN, YOU DIE.", width/2, 210);
+      textSize(25);
+      text("WHEN YOU GET TO THE DOOR,", width/2, 275);
+      text("PRESS DOWN TO CONTINUE!", width/2, 300); 
+      text("DON'T LOSE! :D", width/2, 350);
     }
   }
 }
