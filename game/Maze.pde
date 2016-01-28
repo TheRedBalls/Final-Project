@@ -1,4 +1,4 @@
-class Maze {
+class Maze { 
   PImage maze = loadImage("maze.jpg");
   PVector loc = new PVector(width/2, height/2);
   PImage ball = loadImage("redBallCharacter.png");
@@ -7,7 +7,11 @@ class Maze {
   int diam = 30;
   float rot = -PI/2;
 
+<<<<<<< HEAD
   void display() { //displays maze bakcground
+=======
+  void display() { //puts the maze image on the screen
+>>>>>>> origin/Myia
     background(255);
     imageMode(CENTER);
     ball.resize(diam, diam);
@@ -15,7 +19,7 @@ class Maze {
 
     pushMatrix();
     translate(width/2, height/2);
-    rotate(rot);
+    rotate(rot); //rotates image
     translate(loc.x-width/2, loc.y-height/2);
     image(maze, 0, 0);
     popMatrix();
@@ -24,8 +28,8 @@ class Maze {
     loc.x += vel*sin(rot);
     loc.y += vel*cos(rot);
 
-    if (blue(get(width/2, height/2)) <= 5) {
-      lives--;
+    if (blue(get(width/2, height/2)) <= 5) { 
+      lives--; //lives lost in game if ball touches wall
       rot = -PI/2;
       loc.set(width/2, height/2);
     }
@@ -33,9 +37,9 @@ class Maze {
     image(ball, width/2, height/2);
 
     if (keyPressed) {
-      if (keyCode == RIGHT) {
+      if (keyCode == RIGHT) { //rotates image to the right
         rot += 0.1;
-      } else if (keyCode == LEFT) {
+      } else if (keyCode == LEFT) { //rotates image left
         rot -= 0.1;
       }
       if (keyCode == SHIFT) {

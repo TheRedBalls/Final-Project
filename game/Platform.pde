@@ -13,14 +13,18 @@ class Platform {
     loc = new PVector(0, height/10);
   }
 
+<<<<<<< HEAD
   void move() { //to make the ball move 
+=======
+  void move() { //makes the ball move
+>>>>>>> origin/Myia
     imageMode(CORNER);
     if (!jumping) {
       vel.set(0,0);
     } else {
       vel.add(acc);
     }
-    if (keyPressed) {
+    if (keyPressed) { //move up
       if (keyCode == UP) {
         if (!jumping) {
           vel.y = -5;
@@ -28,12 +32,12 @@ class Platform {
         }
       } else if (keyCode == DOWN && (loc.x <= width-55 || loc.y >= 90)) {
         loc.y++;
-      } else if (keyCode == DOWN) {
+      } else if (keyCode == DOWN) { //move down out of game
         currentGame = "startScreen";
         startScreen.mode = 6;
-      } else if (keyCode == RIGHT) {
+      } else if (keyCode == RIGHT) { //go right
         loc.x++;
-      } else if (keyCode == LEFT) {
+      } else if (keyCode == LEFT) { //go left
         loc.x--;
       }
     }
@@ -58,7 +62,11 @@ class Platform {
       jumping = true;
     }
   }
+<<<<<<< HEAD
   void hitPlatform() { //keeps ball on top of platform
+=======
+  void hitPlatform() { //stay on top of platform
+>>>>>>> origin/Myia
     if (vel.y >= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + 3*ball.height/4)) != color(0)) {
       jumping = false;
     } else if (vel.y <= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height/4)) != color(0)) {

@@ -3,8 +3,13 @@ class StartScreen {
   PImage Rectangle;
   int mode = 0;
 
+<<<<<<< HEAD
   void display() {
     rectMode(CORNER); //displays the start screen w/ credits and instructions
+=======
+  void display() { //displays first start screen
+    rectMode(CORNER);
+>>>>>>> origin/Myia
     imageMode(CORNER);
     if (mode == 0) {
       background(0);
@@ -21,17 +26,17 @@ class StartScreen {
       rect(10, 470, 120, 25);
       textSize(15);
       fill(0);
-      text("INSTRUCTIONS", 70, 487); 
+      text("INSTRUCTIONS", 70, 487);  //click for instructions
       fill(255);
       rect(190, 420, 120, 50);
       textSize(25);
       fill(0);
-      text("START!", 250, 455);
+      text("START!", 250, 455); //click to start
       fill(255);
       rect(370, 470, 120, 25); 
       textSize(15);
       fill(0);
-      text("CREDITS", 430, 487);
+      text("CREDITS", 430, 487); //click to view credits
     } else if (mode == 1) {
       background(0);
       fill(255);
@@ -50,8 +55,13 @@ class StartScreen {
     } else if (mode==2) {//screen for instructions
       background(0);
       fill(255);
+<<<<<<< HEAD
       textSize(25); 
       text("INSTRUCTIONS FOR MAZE GAME", width/2, height/6);
+=======
+      textSize(25);
+      text("INSTRUCTIONS FOR MAZE GAME", width/2, height/6); //instructions
+>>>>>>> origin/Myia
       textSize(15);
       text("Guide the ball through the maze.", width/2, height/4+25);
       text("Use the left and right arrow keys to turn the maze.", width/2, height/4+75);
@@ -64,8 +74,13 @@ class StartScreen {
       textAlign(CENTER);
       fill(0);
       textSize(25);
+<<<<<<< HEAD
       text("START!", width/2, 460);
     } else if (mode == 3) { //screen for credits
+=======
+      text("START!", width/2, 460); // takkes you to game
+    } else if (mode == 3) {
+>>>>>>> origin/Myia
       background(0);
       fill(255);
       textSize(20);
@@ -82,7 +97,11 @@ class StartScreen {
       text("BACK", width/2, 460);
     } else if (mode == 4) {
       currentGame = "maze"; //this should actually send them into the maze game
+<<<<<<< HEAD
     } else if (mode == 5) { //final screen if you win the whole game
+=======
+    } else if (mode == 5) { //screen if you win the whole thing 
+>>>>>>> origin/Myia
       background(0);
       Rectangle = loadImage("rektangle.png");
       Rectangle.resize(100, 50);
@@ -104,8 +123,13 @@ class StartScreen {
       rect(width/2, 3*height/4+75, 200, 50);
       fill(0);
       textSize(25);
+<<<<<<< HEAD
       text("Start Again?", width/2, 3*height/4+85);
     } else if (mode == 6) { //screen to introduce the battleship game
+=======
+      text("Start Again?", width/2, 3*height/4+85); //back to home screen
+    } else if (mode == 6) {
+>>>>>>> origin/Myia
       background(0);
       textAlign(CENTER);
       textSize(20);
