@@ -1,7 +1,7 @@
-int num = 25;
+int num = 25;  //declare and initialize integer number
 
-String currentGame;
-int lives=15;
+String currentGame;  //declare String
+int lives=15;  //declare and initialize lives integer
 
 
 Maze maze; //declare game titles
@@ -20,7 +20,7 @@ void setup() {
 
   currentGame = "startScreen"; //start of the game 
   start = new StartScreen();
-  maze = new Maze(); //defining the classes
+  maze = new Maze(); //initialize the classes
 
   platform = new Platform();
 
