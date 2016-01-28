@@ -89,7 +89,7 @@ void mouseClicked() { //allows player to click buttons
       }
     } else if (startScreen.mode == 5) {
       if (width/2-100<=mouseX && mouseX<=width/2+100 && 3*height/4+50<=mouseY && mouseY<=3*height/4+100) {
-        lives = 9;
+        lives = 15;
         startScreen.mode = 0;
       }
     } else if (startScreen.mode == 6) {
