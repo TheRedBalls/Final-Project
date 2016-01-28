@@ -4,7 +4,7 @@ class Platform {
   boolean jumping = true;
   PImage backgrounds;
   
-  Platform() {
+  Platform() { 
     backgrounds = loadImage("platformbackground.fw.png");
     ball = loadImage("redBallCharacter.png");
     ball.resize(25,25);
@@ -13,7 +13,7 @@ class Platform {
     loc = new PVector(0, height/10);
   }
 
-  void move() {
+  void move() { //to make the ball move 
     imageMode(CORNER);
     if (!jumping) {
       vel.set(0,0);
@@ -50,7 +50,7 @@ class Platform {
     background(backgrounds);
     image(ball, loc.x, loc.y, ball.width, ball.height);
   }
-  void hitBottom() {
+  void hitBottom() { //lose a life if you hit the bottom
     if (loc.y + ball.height > height) {
       lives--;
       loc.set(0, height/10);
@@ -58,7 +58,7 @@ class Platform {
       jumping = true;
     }
   }
-  void hitPlatform() {
+  void hitPlatform() { //keeps ball on top of platform
     if (vel.y >= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + 3*ball.height/4)) != color(0)) {
       jumping = false;
     } else if (vel.y <= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height/4)) != color(0)) {
