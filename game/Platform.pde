@@ -13,11 +13,8 @@ class Platform {
     loc = new PVector(0, height/10);
   }
 
-<<<<<<< HEAD
+
   void move() { //to make the ball move 
-=======
-  void move() { //makes the ball move
->>>>>>> origin/Myia
     imageMode(CORNER);
     if (!jumping) {
       vel.set(0,0);
@@ -62,11 +59,9 @@ class Platform {
       jumping = true;
     }
   }
-<<<<<<< HEAD
+
   void hitPlatform() { //keeps ball on top of platform
-=======
-  void hitPlatform() { //stay on top of platform
->>>>>>> origin/Myia
+
     if (vel.y >= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + 3*ball.height/4)) != color(0)) {
       jumping = false;
     } else if (vel.y <= 0 && backgrounds.get(int(loc.x+ball.width/2), int(loc.y)) == color(0) && backgrounds.get(int(loc.x+ball.width/2), int(loc.y + ball.height/4)) != color(0)) {
