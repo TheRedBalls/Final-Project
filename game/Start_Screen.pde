@@ -80,8 +80,6 @@ class StartScreen { //new class
       fill(0);  //set text fill to black
       textSize(25);  //set text size to 25
       text("BACK", width/2, 460);  //insert text
-    } else if (mode == 4) {  //if mode is equal to 4...
-      currentGame = "maze";  //set currentGame equal to maze
     } else if (mode == 5) {  //if mode is equal to 5...
       background(0);  //set background color to black
       Rectangle = loadImage("rektangle.png");  //load rektangle image
