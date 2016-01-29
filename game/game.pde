@@ -1,5 +1,3 @@
-int num = 25;  //declare and initialize integer number
-
 String currentGame;  //declare String
 int lives=15;  //declare and initialize lives integer
 
